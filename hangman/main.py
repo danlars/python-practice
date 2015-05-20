@@ -14,3 +14,4 @@ for row in cur:
 
 cur.close()
 conn.close()
+
