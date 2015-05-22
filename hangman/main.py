@@ -5,13 +5,13 @@ conn = pymysql.connect(db='python-hangman', user='python', passwd='python', host
 
 cur = conn.cursor()
 
-cur.execute("SELECT * FROM dictionary")
+cur.execute("SELECT word FROM dictionary ORDER BY RAND() LIMIT 1")
 
-print(cur.description)
+# print(cur.description)
 
-for row in cur:
-   print(row)
+print(cur.fetchone()[0])
+# for row in cur:
+#    print(row)
 
 cur.close()
 conn.close()
-
