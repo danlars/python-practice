@@ -7,26 +7,29 @@ cur = conn.cursor()
 cur.execute("SELECT word FROM dictionary ORDER BY RAND() LIMIT 1")
 
 lives = 10
-guessCount = 0
+guessCount = 1
 
 random_string = cur.fetchone()[0]
+print(random_string)
 
 #gets lenght of word
 word_lenght = (len(random_string))
+
 
 #print lenght as "_" characters on same line
 i = 0
 for i in range(i,word_lenght):
     print("_ ", end=" ")
 
-if guessCount == lives:
-    print("you failed...")
-else:
-    print("lets play..")
+while guessCount <= lives:
+    guess = input("\nenter a letter")
+    if guess in random_string:
+        print("hurraay")
 
+    guessCount += 1
+    print(guessCount)
 
 #TODO: After each guess, if correct, remove _ and replace with the guessed character at each respective character placement
-#TODO: Maximum of 10 guesses (vi kan altid lave det om)
 #TODO: Funsies, draw a hangman in console
 
 cur.close()
