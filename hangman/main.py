@@ -15,3 +15,4 @@ if not name:
 hangman(name)
 
 print("Exited program")
+print("wtf")
