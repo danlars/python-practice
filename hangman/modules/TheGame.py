@@ -19,9 +19,9 @@ def hangmanTheGame(name):
         while True:
             print(characters)
             i = input("Guess a character ")
-            if not i:
+            if not i: #If no input is received, stop the game
                 cur.close()
                 conn.close()
                 return
 
-        Syntax = 'WHERE NOT word IN({})'.format(methods.character_array(ar))
+        Syntax = 'WHERE NOT word IN({})'.format(methods.MySQLWords(ar))

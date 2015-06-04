@@ -1,11 +1,11 @@
 
-def character_count(word):
+def character_count(word):#Create underscore characters for each existing letter in word
     characters = ""
     for x in word:
         characters += "-"
     return characters
 
-def character_array(ar):
+def MySQLWords(ar): #MySQL words that are not to be repeated
     count = 0
     stringArrays = ""
 
