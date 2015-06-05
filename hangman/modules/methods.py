@@ -17,3 +17,8 @@ def MySQLWords(ar): #MySQL words that are not to be repeated
             stringArrays += ',\'{}\''.format(row)
 
     return stringArrays
+
+def lives_count(live):
+    live -= 1
+
+    return live
