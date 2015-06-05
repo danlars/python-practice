@@ -21,3 +21,9 @@ def MySQLWords(ar): #MySQL words that are not to be repeated
 
     return stringArrays
 
+def test(word):
+    char = ""
+    for x in word:
+        char += "-"
+    return char
+
