@@ -2,7 +2,7 @@
 def character_count(word):#Create underscore characters for each existing letter in word
     characters = ""
     for x in word:
-        characters += "-"
+        characters += "_"
     return characters
 
 def MySQLWords(ar): #MySQL words that are not to be repeated

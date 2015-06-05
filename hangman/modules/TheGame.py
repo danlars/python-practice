@@ -19,7 +19,9 @@ def hangmanTheGame(name):
 
         #number of tries
         tries_left = 10
+
         while tries_left > 0:
+
             print(tries_left)
             print(randomString)
             print(characters)
@@ -29,7 +31,8 @@ def hangmanTheGame(name):
             if i not in randomString:
                 tries_left = methods.lives_count(tries_left)
             else:
-                print("yaay")
+                index = (randomString.rfind(i))
+                print(index)
 
             if not i: #If no input is received, stop the game
                 cur.close()
