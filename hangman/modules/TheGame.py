@@ -43,7 +43,7 @@ def hangmanTheGame(name):
                 conn.close()
                 return
 
-        print("the word has bin guessed")
+        print("the word has been guessed")
 
         Syntax = 'WHERE NOT word IN({})'.format(methods.MySQLWords(ar))
 
