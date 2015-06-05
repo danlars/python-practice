@@ -15,27 +15,24 @@ def hangmanTheGame(name):
 
         randomString = cur.fetchone()[0]
         ar.append(randomString)
-        characters = None
+        guessedCharacters = []
+        characters = ""
+        #number of tries
+        tries_left = 10
 
         for i in randomString:
             characters += "_"
 
-        #number of tries
-        tries_left = 10
-
         while tries_left > 0:
-
-
             print("You have %d live(s) left" % tries_left)
             print(characters)
             i = input("Guess a character ")
-            characters = methods.character_guess(randomString, i)
             # if user guess is not in word decrement tries_left by one
             if i not in randomString:
-                tries_left=-1
+                tries_left -= 1
             else:
-                index = (randomString.rfind(i))
-                print(index)
+                guessedCharacters.append(i)
+                characters = methods.character_guess(randomString, guessedCharacters)
 
             if not i: #If no input is received, stop the game
                 cur.close()

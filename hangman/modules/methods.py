@@ -1,8 +1,8 @@
 
-def character_guess(word, characterGuessed, guessedCharacter = ""):#Create underscore characters for each existing letter in word
+def character_guess(word, guessedCharacters):#Create underscore characters for each existing letter in word
     characters = ""
-    for x in word:
-        if guessedCharacter == x or "_" not in x :
+    for x in str(word).lower():
+        if x in guessedCharacters:
             characters += x
         else:
             characters += "_"
