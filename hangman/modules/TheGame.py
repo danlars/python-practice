@@ -15,21 +15,24 @@ def hangmanTheGame(name):
 
         randomString = cur.fetchone()[0]
         ar.append(randomString)
-        characters = methods.character_count(randomString)
+        characters = None
+
+        for i in randomString:
+            characters += "_"
 
         #number of tries
         tries_left = 10
 
         while tries_left > 0:
 
-            print(tries_left)
-            print(randomString)
+
+            print("You have %d live(s) left" % tries_left)
             print(characters)
             i = input("Guess a character ")
-
+            characters = methods.character_guess(randomString, i)
             # if user guess is not in word decrement tries_left by one
             if i not in randomString:
-                tries_left = methods.lives_count(tries_left)
+                tries_left=-1
             else:
                 index = (randomString.rfind(i))
                 print(index)
@@ -40,3 +43,5 @@ def hangmanTheGame(name):
                 return
 
         Syntax = 'WHERE NOT word IN({})'.format(methods.MySQLWords(ar))
+
+

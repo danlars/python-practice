@@ -1,8 +1,11 @@
 
-def character_count(word):#Create underscore characters for each existing letter in word
+def character_guess(word, characterGuessed, guessedCharacter = ""):#Create underscore characters for each existing letter in word
     characters = ""
     for x in word:
-        characters += "_"
+        if guessedCharacter == x or "_" not in x :
+            characters += x
+        else:
+            characters += "_"
     return characters
 
 def MySQLWords(ar): #MySQL words that are not to be repeated
@@ -18,7 +21,3 @@ def MySQLWords(ar): #MySQL words that are not to be repeated
 
     return stringArrays
 
-def lives_count(live):
-    live -= 1
-
-    return live
