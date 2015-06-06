@@ -16,13 +16,10 @@ def hangmanTheGame(name):
         randomString = cur.fetchone()[0]
         ar.append(randomString)
         guessedCharacters = []
-        characters = ""
+        characters = methods.character_guess(randomString, guessedCharacters)
 
         #number of tries
         tries_left = 10
-
-        for i in randomString:
-            characters += "_"
 
         while tries_left > 0 and "_" in characters:
             print("You have %d live(s) left" % tries_left)

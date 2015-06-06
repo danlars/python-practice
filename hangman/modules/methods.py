@@ -1,8 +1,8 @@
 
 def character_guess(word, guessedCharacters):#Create underscore characters for each existing letter in word
     characters = ""
-    for x in str(word).lower():
-        if x in guessedCharacters:
+    for x in word:
+        if str(x).lower() in str(guessedCharacters).lower() or x == " ":
             characters += x
         else:
             characters += "_"
