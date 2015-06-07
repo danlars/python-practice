@@ -21,10 +21,10 @@ def MySQLWords(ar): #MySQL words that are not to be repeated
 
     return stringArrays
 
-def checkCharacter(guessedCharacter, guessedCharacters):
+def checkCharacter(guessedCharacter, guessedCharacters): #Check if guessed character is legal
     illegalCharacters = \
         [',', ';', '.', ':', '-', '_', '!', '"', '@', '#', '£', '¤', '$', '§', '½', '¾', '%', '&', '¥', '/', '{', '(', '[', ')', ']', '=', '}', '?', '+', '±', '|', '\'']
-    illegalCharacters.append(guessedCharacters)
+    illegalCharacters = illegalCharacters + guessedCharacters
     if(guessedCharacter[0] in illegalCharacters):
         return False
     else:

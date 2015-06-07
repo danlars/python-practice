@@ -25,6 +25,7 @@ def hangmanTheGame(name):
             print("You have %d live(s) left" % tries_left)
             print(characters)
             i = methods.checkCharacter(input("Guess a character "), guessedCharacters)
+
             if i == False:
                 print("This character is not legal, try another one")
             else:
