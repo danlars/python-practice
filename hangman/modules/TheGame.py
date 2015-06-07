@@ -24,24 +24,24 @@ def hangmanTheGame(name):
         while tries_left > 0 and "_" in characters:
             print("You have %d live(s) left" % tries_left)
             print(characters)
-            i = input("Guess a character ")
-
-            # if user guess is not in word decrement tries_left by one
-            if i not in randomString:
-                tries_left -= 1
-                guessedCharacters.append(i)
-                print("you have already guessed %s" % guessedCharacters)
+            i = methods.checkCharacter(input("Guess a character "), guessedCharacters)
+            if i == False:
+                print("This character is not legal, try another one")
             else:
-                guessedCharacters.append(i)
-                characters = methods.character_guess(randomString, guessedCharacters)
+                if i not in randomString: #if user guess is not in word decrement tries_left by one
+                    tries_left -= 1
+                    guessedCharacters.append(i)
+                    print("you have already guessed %s" % guessedCharacters)
+                else:
+                    guessedCharacters.append(i)
+                    characters = methods.character_guess(randomString, guessedCharacters)
 
-            if not i: #If no input is received, stop the game
-                cur.close()
-                conn.close()
-                return
+                if not i: #If no input is received, stop the game
+                    cur.close()
+                    conn.close()
+                    return
 
         print("the word has been guessed")
-
         Syntax = 'WHERE NOT word IN({})'.format(methods.MySQLWords(ar))
 
 
